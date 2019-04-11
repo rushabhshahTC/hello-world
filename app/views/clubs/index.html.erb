@@ -1,0 +1,34 @@
+<style type="text/css">
+  .home_links:hover
+  {
+    color:#fbfbfb!important;
+  }
+</style>
+<div style="background-color:darkgrey">
+  <%= link_to 'Home', root_path, class: 'home_links', style: 'color: black' %>
+  <%= link_to 'Create Club', new_club_path, {class: 'home_links', remote: true, style: 'color: black', 'data-toggle': "modal", 'data-target': '#modal-window'}  %>
+  <%= link_to 'Create Club Admin', clubs_clubadmin_path %>
+</div>
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+<br>
+<table class="col-6 offset-3 table table-hover table-bordered">
+  <tr>
+    <th>Club Name</th>
+    <th colspan=3>Operation</th>
+  </tr>
+
+  <% @clubs.each do |club| %>
+    <tr>
+      <td><%= club.name %></td>
+      <td><%= link_to 'Show', club_path(club) %></td>
+      <td><%= link_to 'Edit', edit_club_path(club), {remote: true, 'data-toggle': "modal", 'data-target': '#modal-window'} %></td>
+      <td><%= link_to 'Delete', club_path(club), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+
+</table>

@@ -1,0 +1,12 @@
+Club Dashboard
+
+<table class="col-6 offset-3 table table-hover table-bordered">
+  <tr>
+    <th>Club Name</th>
+    <th>Operation</th>
+  </tr>
+  <tr>
+    <td><%= @club.name %></td>
+    <td><%= link_to 'Edit', edit_club_path(@club), {remote: true, 'data-toggle': "modal", 'data-target': '#modal-window'} %></td>
+  </tr>
+</table>
