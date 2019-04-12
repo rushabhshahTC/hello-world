@@ -15,8 +15,8 @@ module TeeBook
       address: 'smtp.gmail.com',
       port: 587,
       domain: 'gmail.com',
-      user_name: 'rushabhshah131096@gmail.com',
-      password: 'rushabhshah13',
+      user_name: 'rushabh@yopmail.com',
+      password: '',
       authentication: 'plain',
       enable_starttls_auto: true }
 

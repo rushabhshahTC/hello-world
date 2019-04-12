@@ -1,1 +1,41 @@
-Club admin homepage
+<h3>Club Admin </h3>
+
+<% resource.build_profile if resource.profile.nil? %>
+<%= form_for(resource, :as => resource_name,
+                       :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.fields_for :profile do |profile_fields| %>
+      <%= profile_fields.label "first name" %>
+      <%= profile_fields.text_field :first_name %>
+      <%= profile_fields.label "address" %>
+      <%= profile_fields.text_field :address %>
+      <%= profile_fields.label "city" %>
+      <%= profile_fields.text_field :city %>
+      <%= profile_fields.label "DOB" %>
+      <%= profile_fields.date_field :dob %>
+      <%= profile_fields.label "gender" %>
+      <%= profile_fields.text_field :gender %>
+      <%= profile_fields.label "handicap" %>
+      <%= profile_fields.text_field :handicap %>
+      <%= profile_fields.label "handicap_certified" %>
+      <%= profile_fields.text_field :handicap_certified %>
+      <%= profile_fields.label "gender" %>
+      <%= profile_fields.text_field :gender %>
+    <% end %>
+
+      <%= f.submit %>
+
+<% end %>
+
+
+t.decimal "handicap", precision: 4, scale: 2
+t.boolean "handicap_certified"
+t.boolean "is_professional"
+t.string "last_name"
+t.string "licence_number"
+t.string "phone_number"
+t.string "role"
+t.string "state"
