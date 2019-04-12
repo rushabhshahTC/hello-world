@@ -1,3 +1,4 @@
 <h1>Super Admin</h1>
+<h5><%= current_user.email %> <h5>
 <%= link_to 'Club', clubs_path, class: 'btn btn-primary' %>
 <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>

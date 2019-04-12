@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'home#index'
-  devise_for :users, controllers: { confirmations: 'users/confirmations' }
+  devise_for :users, controllers: { confirmations: 'users/confirmations', registrations: 'users/registrations' }
   get 'clubs/clubadmin', to: "clubs#clubadmin"
   resources :clubs
 

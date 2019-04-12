@@ -10,12 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_045955) do
+ActiveRecord::Schema.define(version: 2019_04_12_100625) do
+
+  create_table "club_profiles", force: :cascade do |t|
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "email"
+    t.string "phone_number"
+    t.integer "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_club_profiles_on_club_id"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "address"
+    t.string "city"
+    t.date "dob"
+    t.string "first_name"
+    t.integer "gender"
+    t.decimal "handicap", precision: 4, scale: 2
+    t.boolean "handicap_certified"
+    t.boolean "is_professional"
+    t.string "last_name"
+    t.string "licence_number"
+    t.string "phone_number"
+    t.string "role"
+    t.string "state"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
